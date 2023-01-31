@@ -218,6 +218,10 @@ class AuthentificationSCMCredential < Authentification
   register_auth_type 6
 end
 
+class AuthentificationScramPassword < Authentification 
+  register_auth_type 10
+end
+
 class PasswordMessage < Message
   register_message_type 'p'
   fields :password
