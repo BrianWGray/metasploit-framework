@@ -71,7 +71,7 @@ class Connection
       msg = Message.read(@conn)
 
       case msg
-      when AuthentificationClearTextPassword
+      when AuthentificationClearTextPassword, AuthentificationScramPassword
         raise ArgumentError, "no password specified" if password.nil?
         raise AuthenticationMethodMismatch, "Server expected clear text password auth" if md5_hash_match
         @conn << PasswordMessage.new(password).dump
